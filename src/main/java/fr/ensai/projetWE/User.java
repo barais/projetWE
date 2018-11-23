@@ -6,6 +6,9 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -17,7 +20,12 @@ public class User {
 	String nom, prenom;
 	Date datenaissance;
 	ROLE role;
+	
+	@ManyToMany
 	List<Activite> sportspreferes;
+
+	@OneToMany
+	@JoinColumn(name="userid")
 	List<ActiviteHistorique> historiques;
 	
 	public List<ActiviteHistorique> getHistoriques() {

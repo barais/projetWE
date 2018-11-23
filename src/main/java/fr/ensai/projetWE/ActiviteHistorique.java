@@ -5,6 +5,7 @@ import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class ActiviteHistorique {
@@ -12,7 +13,9 @@ public class ActiviteHistorique {
 	@Id
 	@GeneratedValue
 	long id;
+	@ManyToOne
 	Activite activite;
+
 	public long getId() {
 		return id;
 	}
@@ -37,7 +40,10 @@ public class ActiviteHistorique {
 	public void setLieu(Lieu lieu) {
 		this.lieu = lieu;
 	}
+	
 	Date date;
+	
+	@ManyToOne
 	Lieu lieu;
 
 }

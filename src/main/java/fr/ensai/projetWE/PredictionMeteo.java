@@ -5,6 +5,7 @@ import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class PredictionMeteo {
@@ -22,6 +23,7 @@ public class PredictionMeteo {
 	Date startDate;
 	Date endDate;
 	
+	@ManyToOne
 	Lieu lieu;
 	
 	public long getId() {

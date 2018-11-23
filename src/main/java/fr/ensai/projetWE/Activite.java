@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Activite {
@@ -23,6 +24,8 @@ public class Activite {
 	boolean mustBeSunny;
 	boolean indoor;
 	
+	
+	@ManyToMany
 	List<Lieu> lieux;
 
 	public long getId() {
