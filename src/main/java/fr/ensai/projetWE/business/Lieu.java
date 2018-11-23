@@ -1,4 +1,4 @@
-package fr.ensai.projetWE;
+package fr.ensai.projetWE.business;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

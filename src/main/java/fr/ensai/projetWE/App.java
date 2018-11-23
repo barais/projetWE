@@ -8,6 +8,9 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.transaction.Transactional;
 
+import fr.ensai.projetWE.business.ROLE;
+import fr.ensai.projetWE.business.User;
+
 /**
  * Hello world!
  *
