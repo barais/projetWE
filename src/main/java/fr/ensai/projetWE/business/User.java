@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -11,12 +12,14 @@ import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @NamedQueries({@NamedQuery(name="touslesutilisateurs",query="select u from User as u"),
-	@NamedQuery(name="touslesutilisateursparnom",query="select u from User as u where u.nom=:nom")
+	@NamedQuery(name="touslesutilisateursparnom",query="select u from User as u join fetch u.sportspreferes where u.nom=:nom ")
 })
 
 @Entity
+@Table(name="UTILISATEUR")
 public class User {
 	
 	
@@ -27,7 +30,7 @@ public class User {
 	Date datenaissance;
 	ROLE role;
 	
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER)
 	List<Activite> sportspreferes;
 
 	@OneToMany
