@@ -20,9 +20,7 @@ public class App
     public static void main( String[] args )
     {
 
-    	EntityManagerFactory factory = Persistence
-				.createEntityManagerFactory("mysql");
-		EntityManager manager = factory.createEntityManager();
+		EntityManager manager = EntityManagerHelper.getEntityManager();
 		
 		User u = new User();
 		u.setDatenaissance(new Date(80, 01, 26));
@@ -44,7 +42,6 @@ public class App
 		tx.commit();
 		
 		manager.close();
-		factory.close();
 
     }
     

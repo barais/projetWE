@@ -8,7 +8,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+
+@NamedQueries({@NamedQuery(name="touslesutilisateurs",query="select u from User as u"),
+	@NamedQuery(name="touslesutilisateursparnom",query="select u from User as u where u.name=:name")
+})
 
 @Entity
 public class User {
