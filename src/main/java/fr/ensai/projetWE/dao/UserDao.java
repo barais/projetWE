@@ -52,9 +52,26 @@ public class UserDao {
 	List<User> getUserByActivity(String name) {
 
 		String query = "select u from User as u join u.sportspreferes as s where s.activityname=:name";
-		return EntityManagerHelper.getEntityManager().createQuery(query, User.class).setParameter("name", name)
+		return EntityManagerHelper.getEntityManager().createQuery(query, User.class).setParameter("nom", name)
 				.getResultList();
 
 	}
+	
+	List<User> getUserByLieu(String name) {
+
+		String query = "select u from User as u join u.sportspreferes as s join s.lieux as l where l.name=:name";
+		return EntityManagerHelper.getEntityManager().createQuery(query, User.class).setParameter("nom", name)
+				.getResultList();
+
+	}
+
+	List<User> getUserByCodePostal(String codepostal) {
+
+		String query = "select u from User as u join u.sportspreferes as s join s.lieux as l where l.codePostal=:codepostal";
+		return EntityManagerHelper.getEntityManager().createQuery(query, User.class).setParameter("codepostal", codepostal)
+				.getResultList();
+
+	}
+
 
 }

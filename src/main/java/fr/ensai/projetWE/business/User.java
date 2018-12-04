@@ -13,7 +13,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 @NamedQueries({@NamedQuery(name="touslesutilisateurs",query="select u from User as u"),
-	@NamedQuery(name="touslesutilisateursparnom",query="select u from User as u where u.name=:name")
+	@NamedQuery(name="touslesutilisateursparnom",query="select u from User as u where u.nom=:nom")
 })
 
 @Entity
