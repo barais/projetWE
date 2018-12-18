@@ -40,7 +40,7 @@ public class ActivityDao {
 		EntityManagerHelper.commit();
 		return a;
 	}
-
+	
 	List<Activite> getActivityByUser(String name) {
 
 		String query = "select distinct u.sportspreferes from User as u where u.nom=:nom";
